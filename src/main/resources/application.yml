@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/fcm-notification-implementation
+    username: postgres
+    password: admin
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+    database: postgresql
+    show-sql: true
+
+fcm:
+  service-account:
+    file-path: #Path to firebase service account JSON file.
