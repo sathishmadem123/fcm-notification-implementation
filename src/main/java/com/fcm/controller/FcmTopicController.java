@@ -6,7 +6,6 @@ import com.fcm.dto.request.FcmTopicDTO;
 import com.fcm.dto.response.ApiResponse;
 import com.fcm.dto.response.FcmRecipientResponseDTO;
 import com.fcm.service.FcmTopicService;
-import com.google.firebase.messaging.FirebaseMessagingException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -54,13 +53,13 @@ public class FcmTopicController {
     }
 
     @DeleteMapping("/deleteByName")
-    public ApiResponse deleteTopicByName(@RequestParam List<String> names) throws FirebaseMessagingException {
+    public ApiResponse deleteTopicByName(@RequestParam List<String> names) {
         fcmTopicService.deleteTopic(names);
         return new ApiResponse(true, "Deleted successfully", null);
     }
 
     @DeleteMapping("/deleteById/{id}")
-    public ApiResponse deleteTopicById(@PathVariable("id") Long id) throws FirebaseMessagingException {
+    public ApiResponse deleteTopicById(@PathVariable("id") Long id) {
         fcmTopicService.deleteTopic(id);
         return new ApiResponse(true, "Deleted successfully", null);
     }
