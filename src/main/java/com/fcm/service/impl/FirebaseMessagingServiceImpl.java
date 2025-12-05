@@ -1,6 +1,7 @@
 package com.fcm.service.impl;
 
 import com.fcm.entity.FcmTopic;
+import com.fcm.exception.FirebaseInternalException;
 import com.fcm.repository.FcmTopicRepository;
 import com.fcm.service.FirebaseMessagingService;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -9,7 +10,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -25,7 +25,7 @@ public class FirebaseMessagingServiceImpl implements FirebaseMessagingService {
         try {
             firebaseMessaging.subscribeToTopic(List.of(token), topicName);
         } catch (FirebaseMessagingException e) {
-            throw new RuntimeException(e);
+            throw new FirebaseInternalException(e.getMessage());
         }
     }
 
@@ -35,7 +35,7 @@ public class FirebaseMessagingServiceImpl implements FirebaseMessagingService {
             try {
                 firebaseMessaging.subscribeToTopic(List.of(token), topic);
             } catch (FirebaseMessagingException e) {
-                throw new RuntimeException(e);
+                throw new FirebaseInternalException(e.getMessage());
             }
         });
     }
@@ -46,8 +46,7 @@ public class FirebaseMessagingServiceImpl implements FirebaseMessagingService {
             try {
                 firebaseMessaging.subscribeToTopic(tokens, topic);
             } catch (FirebaseMessagingException e) {
-                log.info(Arrays.toString(e.getStackTrace()));
-                throw new RuntimeException(e);
+                throw new FirebaseInternalException(e.getMessage());
             }
         });
     }
@@ -59,7 +58,7 @@ public class FirebaseMessagingServiceImpl implements FirebaseMessagingService {
             try {
                 firebaseMessaging.unsubscribeFromTopic(tokens, topic.getName());
             } catch (FirebaseMessagingException e) {
-                throw new RuntimeException(e);
+                throw new FirebaseInternalException(e.getMessage());
             }
         });
     }
@@ -70,7 +69,7 @@ public class FirebaseMessagingServiceImpl implements FirebaseMessagingService {
             try {
                 firebaseMessaging.unsubscribeFromTopic(List.of(token), topic);
             } catch (FirebaseMessagingException e) {
-                throw new RuntimeException(e);
+                throw new FirebaseInternalException(e.getMessage());
             }
         });
     }
@@ -80,7 +79,7 @@ public class FirebaseMessagingServiceImpl implements FirebaseMessagingService {
         try {
             firebaseMessaging.unsubscribeFromTopic(tokens, topicName);
         } catch (FirebaseMessagingException e) {
-            throw new RuntimeException(e);
+            throw new FirebaseInternalException(e.getMessage());
         }
     }
 
@@ -90,7 +89,7 @@ public class FirebaseMessagingServiceImpl implements FirebaseMessagingService {
             try {
                 firebaseMessaging.unsubscribeFromTopic(tokens, topic);
             } catch (FirebaseMessagingException e) {
-                throw new RuntimeException(e);
+                throw new FirebaseInternalException(e.getMessage());
             }
         });
     }

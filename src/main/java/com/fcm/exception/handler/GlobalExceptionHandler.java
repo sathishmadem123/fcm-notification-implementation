@@ -2,6 +2,7 @@ package com.fcm.exception.handler;
 
 import com.fcm.dto.error.ApiErrorResponse;
 import com.fcm.enums.ErrorCode;
+import com.fcm.exception.FirebaseInternalException;
 import com.fcm.exception.RecordNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.context.MessageSourceResolvable;
@@ -124,5 +125,24 @@ public class GlobalExceptionHandler {
                 .build();
 
         return new ResponseEntity<>(response, HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(FirebaseInternalException.class)
+    public ResponseEntity<ApiErrorResponse> handleFirebaseException(FirebaseInternalException ex, HttpServletRequest request) {
+        ErrorCode errorCode = ErrorCode.FIREBASE_EXCEPTION;
+
+        ApiErrorResponse response = ApiErrorResponse.builder()
+                .timestamp(Instant.now())
+                .success(false)
+                .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
+                .error(errorCode)
+                .cause(ex.getCause() != null ? ex.getCause().getClass().getName() : ex.getClass().getName())
+                .eCode(errorCode.getECode())
+                .message(errorCode.getEMessage())
+                .details(List.of(ex.getMessage()))
+                .path(request.getRequestURI())
+                .build();
+
+        return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
