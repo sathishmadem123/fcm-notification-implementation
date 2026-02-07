@@ -8,4 +8,6 @@ import java.util.Optional;
 public interface FcmTopicRepository extends JpaRepository<FcmTopic, Long> {
 
     Optional<FcmTopic> findByName(String name);
+
+    boolean existsByName(String name);
 }

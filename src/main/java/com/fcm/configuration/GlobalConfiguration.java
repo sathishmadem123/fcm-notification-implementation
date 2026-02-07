@@ -13,8 +13,7 @@ import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.List;
 
 @Configuration
 public class GlobalConfiguration {
@@ -26,11 +25,11 @@ public class GlobalConfiguration {
                 .setMatchingStrategy(MatchingStrategies.STRICT)
                 .setSkipNullEnabled(true);
 
-        Converter<Set<FcmTopic>, Set<String>> topicConverter =
-                ctx -> ctx.getSource() == null ? Set.of() :
+        Converter<List<FcmTopic>, List<String>> topicConverter =
+                ctx -> ctx.getSource() == null ? List.of() :
                         ctx.getSource().stream()
                                 .map(FcmTopic::getName)
-                                .collect(Collectors.toSet());
+                                .toList();
 
         modelMapper.typeMap(FcmRecipient.class, FcmRecipientDTO.class)
                 .addMappings(mapper ->
