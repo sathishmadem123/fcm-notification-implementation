@@ -1,0 +1,549 @@
+{
+  "info": {
+    "_postman_id": "9881fd53-fd79-4c64-b7c4-a4021bae9149",
+    "name": "fcm-notification-implementation-api-collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "37800105"
+  },
+  "item": [
+    {
+      "name": "FcmRecipient",
+      "item": [
+        {
+          "name": "add",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"recipientId\": 1,\r\n    \"token\": \"token\",\r\n    \"topicIds\": [\r\n        \"1\", 2\r\n    ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/fcm-recipient/add",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fcm-recipient",
+                "add"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "addAll",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n    {\r\n        \"recipientId\": 5,\r\n        \"token\": \"token\",\r\n        \"topics\": [\r\n            \"sample\"\r\n        ]\r\n    },\r\n    {\r\n        \"recipientId\": 1,\r\n        \"token\": \"token\",\r\n        \"topics\": [\r\n            \"news\"\r\n        ]\r\n    },\r\n    {\r\n        \"recipientId\": 6,\r\n        \"token\": \"token\",\r\n        \"topics\": [\r\n            \"sample\"\r\n        ]\r\n    }\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/fcm-recipient/addAll",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fcm-recipient",
+                "addAll"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getById",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{baseUrl}}/fcm-recipient/getById/2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fcm-recipient",
+                "getById",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getAll",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{baseUrl}}/fcm-recipient/getAll",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fcm-recipient",
+                "getAll"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "deleteTokens",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{baseUrl}}/fcm-recipient/deleteTokens?tokens=token, token",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fcm-recipient",
+                "deleteTokens"
+              ],
+              "query": [
+                {
+                  "key": "tokens",
+                  "value": "token, token"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "deleteById",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fcm-recipient/deleteById/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fcm-recipient",
+                "deleteById",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "FcmTopic",
+      "item": [
+        {
+          "name": "add",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"news\",\r\n    \"description\": \"news description\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/fcm-topic/add",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fcm-topic",
+                "add"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "addAll",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n    {\r\n        \"name\": \"news\",\r\n        \"description\": \"news sample\"\r\n    },\r\n    {\r\n        \"name\": \"sports\",\r\n        \"description\": \"sports sample\"\r\n    },\r\n    {\r\n        \"name\": \"sample2\",\r\n        \"description\": \"sample sample\"\r\n    }\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/fcm-topic/addAll",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fcm-topic",
+                "addAll"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getById",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fcm-topic/getById/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fcm-topic",
+                "getById",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getByName",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fcm-topic/getByName/sample",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fcm-topic",
+                "getByName",
+                "sample"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getAll",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fcm-topic/getAll",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fcm-topic",
+                "getAll"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "deleteByName",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fcm-topic/deleteByName?names=sports, sam",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fcm-topic",
+                "deleteByName"
+              ],
+              "query": [
+                {
+                  "key": "names",
+                  "value": "sports, sam"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "deleteById",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fcm-topic/deleteById/9",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fcm-topic",
+                "deleteById",
+                "9"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "subscribeByRecipientId",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n    {\r\n        \"recipientId\": 2,\r\n        \"topics\": [\r\n            \"news\",\r\n            \"sports\"\r\n        ]\r\n    },\r\n        {\r\n        \"recipientId\": 1,\r\n        \"topics\": [\r\n            \"sample2\"\r\n        ]\r\n    }\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/fcm-topic/subscribeByRecipientId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fcm-topic",
+                "subscribeByRecipientId"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "subscribeByToken",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n    {\r\n        \"token\": \"token\",\r\n        \"topics\": [\r\n            \"news\"\r\n        ]\r\n    },\r\n    {\r\n        \"token\": \"token\",\r\n        \"topics\": [\r\n            \"news\"\r\n        ]\r\n    },\r\n    {\r\n        \"token\": \"token\",\r\n        \"topics\": [\r\n            \"sample\"\r\n        ]\r\n    }\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/fcm-topic/subscribeByToken",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fcm-topic",
+                "subscribeByToken"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "unsubscribeByRecipientId",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n    {\r\n        \"recipientId\": 1,\r\n        \"topics\": [\r\n            \"sample2\"\r\n        ]\r\n    },\r\n    {\r\n        \"recipientId\": 2,\r\n        \"topics\": [\r\n            \"sample\"\r\n        ]\r\n    },\r\n    {\r\n        \"recipientId\": 3,\r\n        \"topics\": [\r\n            \"sports\"\r\n        ]\r\n    }\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/fcm-topic/unsubscribeByRecipientId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fcm-topic",
+                "unsubscribeByRecipientId"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "unsubscribeByToken",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n    {\r\n        \"token\": \"token\",\r\n        \"topics\": [\r\n            \"news\",\r\n            \"sports\"\r\n        ]\r\n    }\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/fcm-topic/unsubscribeByToken",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fcm-topic",
+                "unsubscribeByToken"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "FcmNotification",
+      "item": [
+        {
+          "name": "sendByToken",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Hi\",\r\n    \"body\": \"Hello\",\r\n    \"image\": \"imageUrl\",\r\n    \"tokens\": [\r\n        \"token\",\r\n        \"token\"\r\n    ],\r\n    \"data\": {\r\n        \"title\": \"Hi\",\r\n        \"body\": \"Hello\",\r\n        \"image\": \"imageUrl\",\r\n        \"customKey\": \"customValue\"\r\n    },\r\n    \"notificationRequired\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/fcm-notification/sendByToken",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fcm-notification",
+                "sendByToken"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "sendByRecipientId",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"recipientId\": 1,\r\n    \"title\": \"Hi\",\r\n    \"body\": \"Hello\",\r\n    \"image\": \"imageUrl\",\r\n    \"data\": {\r\n        \"title\": \"Hi\",\r\n        \"body\": \"Hello\",\r\n        \"image\": \"imageUrl\",\r\n        \"customKey\": \"customValue\"\r\n    },\r\n    \"notificationRequired\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/fcm-notification/sendByRecipientId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fcm-notification",
+                "sendByRecipientId"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "sendByTopic",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Hi\",\r\n    \"body\": \"Hello\",\r\n    \"image\": \"imageUrl\",\r\n    \"topics\": [\r\n        \"sample\",\r\n        \"great\"\r\n    ],\r\n    \"data\": {\r\n        \"title\": \"Hi\",\r\n        \"body\": \"Hello\",\r\n        \"image\": \"imageUrl\",\r\n        \"customKey\": \"customValue\"\r\n    },\r\n    \"notificationRequired\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/fcm-notification/sendByTopic",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fcm-notification",
+                "sendByTopic"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ]
+}
